@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>8 Queen Challenge</title>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <h1>The 8 Queens Problem</h1>
+        </div>        
+    </header>
+
+    <main class="main container">        
+
+        <div class="options-wrapper">
+            <fieldset class="queen-options">
+                <legend>Queen Icon</legend>
+                <label for="queen-icon-select" class="label-option">Choose an icon:</label>
+                <select id="queen-icon-select">
+                    <option value="images/queen.png">---------</option>
+                    <option value="images/queen1.png">Icon 1</option>
+                    <option value="images/queen2.png">Icon 2</option>
+                    <option value="images/queen3.png">Icon 3</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="solution-options">
+                <legend>Solutions</legend>
+                <label for="solution-select" class="label-option">Chose a solution:</label>
+                <select id="solution-select">
+                    <option value="">------------</option>
+                    <option value="0">Solution 1</option>
+                    <option value="1">Solution 2</option>
+                    <option value="2">Solution 3</option>
+                    <option value="3">Solution 4</option>
+                    <option value="4">Solution 5</option>
+                    <option value="5">Solution 6</option>
+                </select>
+            </fieldset>
+    
+            <fieldset class="color-options">
+                <legend>Cell Colors</legend>
+                <div class="color-1">
+                    <label for="cell-color-select1" class="label-option">Color 1:</label>
+                    <select id="cell-color-select1">
+                        <option value="">---------</option>
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="blue">Blue</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+                <div class="color-2">
+                    <label for="cell-color-select2" class="label-option">Color 2:</label>
+                    <select id="cell-color-select2">
+                        <option value="">---------</option>
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="blue">Blue</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>                
+            </fieldset>            
+
+            <div class="button-group">
+                <button id="clear-board-btn" class="btn">Clear Board</button>
+                <button id="reset-selects-btn" class="btn" disabled>Reset Values</button>
+            </div>            
+        </div>                        
+
+        <table class="chess-board">
+            <tbody>                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Developed by Pedro Antonio Lopez Lopez</p>
+        </div>        
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

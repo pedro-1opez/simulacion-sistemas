@@ -1,0 +1,250 @@
+/* ======================= Estilos Globales ======================= */
+html {
+    font-size: 62.5%; /* 1rem = 10px */    
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+*::before, *::after, * {    
+    box-sizing: border-box;
+}
+
+:root {
+    --font-color: #FEFCFB;
+    --bg-color: #034078;
+}
+
+h1 {
+    font-size: 3rem;    
+}
+
+h2 {
+    font-size: 2.8rem;    
+}
+
+h3 {
+    font-size: 2.4rem;    
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;    
+    display: block;
+}
+
+/* ======================= Utilidades ======================= */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    flex: 1;
+}
+
+.btn {
+    font-size: 1.4rem;
+    padding: 0.2rem 0.6rem;
+    width: 15rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);            
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn:active {
+    background-color: #004494;
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* ======================= Header ======================= */
+.header {
+    padding: 1rem;
+    color: var(--font-color);
+    background-color: var(--bg-color);
+    width: 100%;    
+}
+
+.header h1 {
+    text-align: center;    
+}
+
+/* ======================= Main ======================= */
+.main {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 55rem;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column-reverse;
+        margin: 4rem 2rem;
+    }
+
+    .options-wrapper {
+        width: 35rem;
+    }
+}
+
+.options-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 40rem;
+    justify-content: space-between;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label, select, option {
+    font-size: 1.4rem;
+}
+
+select, option {
+    padding: 0.2rem;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+legend {
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 0 0.5rem;
+}
+
+.label-option {
+    margin-right: 0.5rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.color-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+}
+
+.chess-board {
+    border: 2px solid #333;
+    border-collapse: collapse;
+    margin: 0rem 10rem;
+    width: 40rem;
+    height: 40rem;
+}
+
+.chess-board td {
+    width: 4rem;
+    height: 4rem;    
+    position: relative;
+    padding: 0.5rem;
+}
+
+.chess-board td img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.3rem;
+}
+
+/* Default color scheme */
+.chess-board tr:nth-child(odd) td:nth-child(even),
+.chess-board tr:nth-child(even) td:nth-child(odd) {
+    background-color: #d49f67;
+}
+
+.chess-board tr:nth-child(odd) td:nth-child(odd),
+.chess-board tr:nth-child(even) td:nth-child(even) {
+    background-color: #52311e;
+}
+
+/* White and Black color scheme */
+.chess-board.white-black tr:nth-child(odd) td:nth-child(even),
+.chess-board.white-black tr:nth-child(even) td:nth-child(odd) {
+    background-color: white;
+}
+
+.chess-board.white-black tr:nth-child(odd) td:nth-child(odd),
+.chess-board.white-black tr:nth-child(even) td:nth-child(even) {
+    background-color: black;
+}
+
+/* Blue and Yellow color scheme */
+.chess-board.blue-yellow tr:nth-child(odd) td:nth-child(even),
+.chess-board.blue-yellow tr:nth-child(even) td:nth-child(odd) {
+    background-color: blue;
+}
+
+.chess-board.blue-yellow tr:nth-child(odd) td:nth-child(odd),
+.chess-board.blue-yellow tr:nth-child(even) td:nth-child(even) {
+    background-color: yellow;
+}
+
+/* Red and Green color scheme */
+.chess-board.red-green tr:nth-child(odd) td:nth-child(even),
+.chess-board.red-green tr:nth-child(even) td:nth-child(odd) {
+    background-color: red;
+}
+
+.chess-board.red-green tr:nth-child(odd) td:nth-child(odd),
+.chess-board.red-green tr:nth-child(even) td:nth-child(even) {
+    background-color: green;
+}
+
+/* ======================= Footer ======================= */
+.footer {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    padding: 2.4rem;
+    text-align: center;
+    font-size: 1.6rem;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .footer {        
+        font-size: 1.4rem;
+    }
+}
+
+.footer p {
+    margin: 0;
+}
+
