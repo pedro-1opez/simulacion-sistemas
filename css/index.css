@@ -143,7 +143,7 @@ legend {
 }
 
 .label-option {
-    margin-right: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .button-group {
@@ -156,6 +156,12 @@ legend {
     display: flex;
     justify-content: space-around;
     align-items: center;    
+}
+
+.color-1, .color-2, .color-blocked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .chess-board {
@@ -171,6 +177,20 @@ legend {
     height: 4rem;    
     position: relative;
     padding: 0.5rem;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+    border: 2px solid #333;
+}
+
+.chess-board td.highlight {
+    background-color: red !important;
+}
+
+.chess-board td.blocked {
+    background-color: red !important;
+}
+
+.chess-board td.blocked.custom-blocked {
+    background-color: var(--blocked-color, red) !important; /* Usa red como color de respaldo */
 }
 
 .chess-board td img {

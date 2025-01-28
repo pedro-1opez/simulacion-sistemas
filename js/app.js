@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const cells = document.querySelectorAll(".chess-board td");
     const boardSize = 8;
     let queenIcon = "images/queen.png";
+    let blockedColor = "#ff0000";
 
     const solutions = [
         [[0, 0], [1, 2], [2, 4], [3, 6], [4, 1], [5, 3], [6, 5], [7, 7]],
@@ -26,13 +27,20 @@ document.addEventListener("DOMContentLoaded", function() {
         enableResetButton();
     });
 
-    document.getElementById("cell-color-select1").addEventListener("change", function() {
+    document.getElementById("cell-color-chooser1").addEventListener("change", function() {
         updateCellColors();
         enableResetButton();
     });
 
-    document.getElementById("cell-color-select2").addEventListener("change", function() {
+    document.getElementById("cell-color-chooser2").addEventListener("change", function() {
         updateCellColors();
+        enableResetButton();
+    });
+
+    document.getElementById("cell-color-chooser-blocked").addEventListener("change", function() {
+        blockedColor = this.value;
+        document.documentElement.style.setProperty('--blocked-color', blockedColor); // Actualiza la variable CSS
+        updateBlockedCells();
         enableResetButton();
     });
 
@@ -51,11 +59,11 @@ document.addEventListener("DOMContentLoaded", function() {
             const col = cell.cellIndex;
 
             if (cell.querySelector("img.queen")) {
-                // If there is a queen image, we remove it and  we unblock cells
+                // If there is a queen image, remove it and unblock cells
                 cell.innerHTML = "";
                 unblockCells();
-            } else if (!cell.querySelector("img.blocked")) {
-                // If there is no queen image and no blocked image, we add the queen image and block the cells
+            } else if (!cell.classList.contains("blocked")) {
+                // If there is no queen image and no blocked cell, add the queen image and block cells
                 const img = document.createElement("img");
                 img.src = queenIcon;
                 img.alt = "queen";
@@ -65,6 +73,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 cell.appendChild(img);
                 blockCells();
             }
+        });
+
+        cell.addEventListener("mouseover", function() {
+            const row = cell.parentElement.rowIndex;
+            const col = cell.cellIndex;
+            highlightAttackCells(row, col);
+        });
+
+        cell.addEventListener("mouseout", function() {
+            const row = cell.parentElement.rowIndex;
+            const col = cell.cellIndex;
+            unhighlightAttackCells(row, col);
         });
     });
 
@@ -89,12 +109,15 @@ document.addEventListener("DOMContentLoaded", function() {
             img.style.height = "100%";
             cell.appendChild(img);
         });
-        blockCells();
+        blockCells(); // Call blockCells to update blocked cells after applying the solution
     }
 
     function clearBoard() {
         cells.forEach(cell => {
             cell.innerHTML = "";
+            cell.classList.remove("blocked");
+            cell.classList.remove("custom-blocked");
+            cell.style.backgroundColor = ""; // Reset background color
         });
     }
 
@@ -108,14 +131,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 for (let j = 0; j < boardSize; j++) {
                     if (i === row || j === col || Math.abs(i - row) === Math.abs(j - col)) {
                         const cell = document.querySelector(`.chess-board tr:nth-child(${i + 1}) td:nth-child(${j + 1})`);
-                        if (!cell.querySelector("img.queen") && !cell.querySelector("img.blocked")) {
-                            const img = document.createElement("img");
-                            img.src = "images/red-x.png";
-                            img.alt = "blocked";
-                            img.classList.add("blocked");
-                            img.style.width = "100%";
-                            img.style.height = "100%";
-                            cell.appendChild(img);
+                        if (!cell.querySelector("img.queen") && !cell.classList.contains("blocked")) {
+                            cell.classList.add("blocked");
+                            cell.classList.add("custom-blocked"); // Añade la clase personalizada
+                            cell.style.backgroundColor = blockedColor; // Set blocked color
                         }
                     }
                 }
@@ -129,15 +148,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function clearBlockedCells() {
-        const blockedCells = document.querySelectorAll(".chess-board img.blocked");
-        blockedCells.forEach(blockedImg => {
-            blockedImg.parentElement.removeChild(blockedImg);
+        const blockedCells = document.querySelectorAll(".chess-board td.blocked");
+        blockedCells.forEach(blockedCell => {
+            blockedCell.classList.remove("blocked");
+            blockedCell.classList.remove("custom-blocked");
+            blockedCell.style.backgroundColor = ""; // Reset background color
         });
     }
 
     function updateCellColors() {
-        const color1 = document.getElementById("cell-color-select1").value;
-        const color2 = document.getElementById("cell-color-select2").value;
+        const color1 = document.getElementById("cell-color-chooser1").value;
+        const color2 = document.getElementById("cell-color-chooser2").value;
         const chessBoard = document.querySelector(".chess-board");
 
         chessBoard.querySelectorAll("tr").forEach((row, rowIndex) => {
@@ -151,17 +172,49 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    function updateBlockedCells() {
+        const blockedCells = document.querySelectorAll(".chess-board td.blocked");
+        blockedCells.forEach(blockedCell => {
+            blockedCell.style.backgroundColor = blockedColor; // Update blocked color
+        });
+    }
+
     function resetSelects() {
         document.getElementById("queen-icon-select").selectedIndex = 0;
         document.getElementById("solution-select").selectedIndex = 0;
-        document.getElementById("cell-color-select1").selectedIndex = 0;
-        document.getElementById("cell-color-select2").selectedIndex = 0;
-        queenIcon = "images/queen.png";
+        document.getElementById("cell-color-chooser1").value = "#d49f67";
+        document.getElementById("cell-color-chooser2").value = "#52311e";
+        document.getElementById("cell-color-chooser-blocked").value = "#ff0000";
+        queenIcon = "images/queen.png"; // Reset the queen icon to the default
+        blockedColor = "#ff0000"; // Reset blocked color to default
+        document.documentElement.style.setProperty('--blocked-color', blockedColor); // Reset variable CSS
         clearBoard();
         updateCellColors();
     }
 
     function enableResetButton() {
         resetButton.disabled = false;
+    }
+
+    function highlightAttackCells(row, col) {
+        for (let i = 0; i < boardSize; i++) {
+            for (let j = 0; j < boardSize; j++) {
+                if (i === row || j === col || Math.abs(i - row) === Math.abs(j - col)) {
+                    const cell = document.querySelector(`.chess-board tr:nth-child(${i + 1}) td:nth-child(${j + 1})`);
+                    cell.classList.add("highlight");
+                }
+            }
+        }
+    }
+
+    function unhighlightAttackCells(row, col) {
+        for (let i = 0; i < boardSize; i++) {
+            for (let j = 0; j < boardSize; j++) {
+                if (i === row || j === col || Math.abs(i - row) === Math.abs(j - col)) {
+                    const cell = document.querySelector(`.chess-board tr:nth-child(${i + 1}) td:nth-child(${j + 1})`);
+                    cell.classList.remove("highlight");
+                }
+            }
+        }
     }
 });
