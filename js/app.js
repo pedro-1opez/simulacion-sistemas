@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const cells = document.querySelectorAll(".chess-board td");
     const boardSize = 8;
     let queenIcon = "images/queen.png";
-    let blockedColor = "#ff0000"; // Color por defecto para las celdas bloqueadas
-    let queensRemaining = 8; // Número inicial de reinas restantes
+    let blockedColor = "#4E4EFD";
+    let queensRemaining = 8;
 
     const solutions = [
         [[0, 0], [1, 2], [2, 4], [3, 6], [4, 1], [5, 3], [6, 5], [7, 7]],
@@ -194,9 +194,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("solution-select").selectedIndex = 0;
         document.getElementById("cell-color-chooser1").value = "#d49f67";
         document.getElementById("cell-color-chooser2").value = "#52311e";
-        document.getElementById("cell-color-chooser-blocked").value = "#ff0000";
+        document.getElementById("cell-color-chooser-blocked").value = "#4E4EFD";
         queenIcon = "images/queen.png"; // Reset the queen icon to the default
-        blockedColor = "#ff0000"; // Reset blocked color to default
+        blockedColor = "#4E4EFD"; // Reset blocked color to default
         document.documentElement.style.setProperty('--blocked-color', blockedColor); // Reset variable CSS
         clearBoard();
         updateCellColors();

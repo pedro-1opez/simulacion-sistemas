@@ -212,7 +212,7 @@ legend {
 }
 
 .chess-board td.blocked.custom-blocked {
-    background-color: var(--blocked-color, red) !important;
+    background-color: var(--blocked-color, #4E4EFD) !important;
 }
 
 .chess-board td img {
