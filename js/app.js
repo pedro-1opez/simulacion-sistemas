@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const cells = document.querySelectorAll(".chess-board td");
     const boardSize = 8;
     let queenIcon = "images/queen.png";
-    let blockedColor = "#ff0000";
+    let blockedColor = "#ff0000"; // Color por defecto para las celdas bloqueadas
+    let queensRemaining = 8; // Número inicial de reinas restantes
 
     const solutions = [
         [[0, 0], [1, 2], [2, 4], [3, 6], [4, 1], [5, 3], [6, 5], [7, 7]],
@@ -14,10 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     const resetButton = document.getElementById("reset-selects-btn");
+    const queenImagesContainer = document.getElementById("queen-images");
 
     document.getElementById("queen-icon-select").addEventListener("change", function() {
         queenIcon = this.value;
         updateQueenIcons();
+        updateQueenCounter(); // Actualiza las imágenes de "Queens Remaining"
         enableResetButton();
     });
 
@@ -62,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // If there is a queen image, remove it and unblock cells
                 cell.innerHTML = "";
                 unblockCells();
+                queensRemaining++;
             } else if (!cell.classList.contains("blocked")) {
                 // If there is no queen image and no blocked cell, add the queen image and block cells
                 const img = document.createElement("img");
@@ -72,7 +76,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 img.style.height = "100%";
                 cell.appendChild(img);
                 blockCells();
+                queensRemaining--;
             }
+            updateQueenCounter();
         });
 
         cell.addEventListener("mouseover", function() {
@@ -110,6 +116,8 @@ document.addEventListener("DOMContentLoaded", function() {
             cell.appendChild(img);
         });
         blockCells(); // Call blockCells to update blocked cells after applying the solution
+        queensRemaining = 8 - solution.length;
+        updateQueenCounter();
     }
 
     function clearBoard() {
@@ -119,6 +127,8 @@ document.addEventListener("DOMContentLoaded", function() {
             cell.classList.remove("custom-blocked");
             cell.style.backgroundColor = ""; // Reset background color
         });
+        queensRemaining = 8;
+        updateQueenCounter();
     }
 
     function blockCells() {
@@ -217,4 +227,20 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
+
+    function updateQueenCounter() {
+        queenImagesContainer.innerHTML = ''; // Clear existing images
+        for (let i = 0; i < queensRemaining; i++) {
+            const img = document.createElement("img");
+            img.src = queenIcon;
+            img.alt = "queen";
+            img.classList.add("queen-counter-img");
+            img.style.width = "30px"; // Adjust size as needed
+            img.style.height = "30px"; // Adjust size as needed
+            queenImagesContainer.appendChild(img);
+        }
+    }
+
+    // Inicializa las imágenes de las reinas
+    updateQueenCounter();
 });

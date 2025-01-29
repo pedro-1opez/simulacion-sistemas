@@ -108,6 +108,8 @@ img {
     }
 }
 
+/* ======================= Options ======================= */
+
 .options-wrapper {
     display: flex;
     flex-direction: column;
@@ -133,13 +135,13 @@ fieldset {
     border: 1px solid #ccc;
     border-radius: 0.5rem;
     padding: 1rem;
-    margin-bottom: 1rem;
 }
 
 legend {
     font-size: 1.6rem;
     font-weight: bold;
     padding: 0 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .label-option {
@@ -164,6 +166,26 @@ legend {
     align-items: center;
 }
 
+.queen-counter {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
+#queen-images {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.queen-counter-img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+}
+
+/* ======================= Chess Board ======================= */
 .chess-board {
     border: 2px solid #333;
     border-collapse: collapse;
@@ -190,7 +212,7 @@ legend {
 }
 
 .chess-board td.blocked.custom-blocked {
-    background-color: var(--blocked-color, red) !important; /* Usa red como color de respaldo */
+    background-color: var(--blocked-color, red) !important;
 }
 
 .chess-board td img {
