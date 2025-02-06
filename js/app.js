@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const iconoJugador1 = document.querySelector('#jugador1-icono');
         const iconoJugador2 = document.querySelector('#jugador2-icono');
 
-        iconoJugador1.src = iconoCruz;
-        iconoJugador2.src = iconoCirculo;
+        iconoJugador1.src = iconoCirculo;
+        iconoJugador2.src = iconoCruz;
     }
     
 
@@ -190,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         iconoParesSelect.value = 'img/circulo.png,img/cruz.png';
         iconoCirculo = 'img/circulo.png';
         iconoCruz = 'img/cruz.png';
+        actualizarIconosResumen();
     }
 
 
