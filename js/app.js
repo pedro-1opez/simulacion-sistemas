@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // MODIFICAR ICONOS
-    let iconoCirculo = 'img/circulo.png';
-    let iconoCruz = 'img/cruz.png';
+    let iconoCirculo = 'img/circulo.webp';
+    let iconoCruz = 'img/cruz.webp';
     let nombreIconoCirculo = 'Circulo';
     let nombreIconoCruz = 'Cruz';
     const iconoParesSelect = document.querySelector('#icono-pares');
@@ -207,9 +207,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function reiniciarIconosResumen() {
-        iconoParesSelect.value = 'img/circulo.png,img/cruz.png';
-        iconoCirculo = 'img/circulo.png';
-        iconoCruz = 'img/cruz.png';
+        iconoParesSelect.value = 'img/circulo.webp,img/cruz.webp';
+        iconoCirculo = 'img/circulo.webp';
+        iconoCruz = 'img/cruz.webp';
         actualizarIconosResumen();
     }
 
