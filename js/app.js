@@ -73,6 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // MODIFICAR ICONOS
     let iconoCirculo = 'img/circulo.png';
     let iconoCruz = 'img/cruz.png';
+    let nombreIconoCirculo = 'Circulo';
+    let nombreIconoCruz = 'Cruz';
     const iconoParesSelect = document.querySelector('#icono-pares');
 
     iconoParesSelect.addEventListener('change', function() {
@@ -99,8 +101,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
         iconoJugador1.src = iconoCirculo;
         iconoJugador2.src = iconoCruz;
+
+        if (iconoCirculo.includes('gato')) {
+            nombreIconoCirculo = 'Gato';
+        } else if (iconoCirculo.includes('estrella')) {
+            nombreIconoCirculo = 'Estrella';
+        } else {
+            nombreIconoCirculo = 'Cruz';
+        }
+
+        if (iconoCruz.includes('perro')) {
+            nombreIconoCruz = 'Perro';
+        } else if (iconoCruz.includes('luna')) {
+            nombreIconoCruz = 'Luna';
+        } else {
+            nombreIconoCruz = 'Circulo';
+        }
     }
-    
 
     // MODIFICAR COLORES
     const color1Input = document.querySelector('#color1');
@@ -136,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalGanador.showModal();
     }
 
-    
+
     //=============== MODAL CONFIRMAR REINICIO ===============//
     const botonReinicio = document.querySelector('.boton-reiniciar');
     const modalConfirmacionReinicio = document.querySelector('#modal-confirmacion-reinicio');
@@ -180,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
         jugador1Ganadas.textContent = '0';
         jugador2Ganadas.textContent = '0';
         empates.textContent = '0';
-
+        
         color1Input.value = '#ffffff';
         color2Input.value = '#ffffff';
         reiniciarJuego();
@@ -253,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         turnoActual = turnoActual === 'X' ? 'O' : 'X';
-        turnoTexto.textContent = `${turnoActual === 'X' ? 'X' : 'O'}`;
+        turnoTexto.textContent = `${turnoActual === 'X' ? nombreIconoCruz : nombreIconoCirculo}`;
     }
 
     function verificarEstadoJuego() {
@@ -277,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tablero.fill(null);
         casillas.forEach(casilla => casilla.textContent = '');
         turnoActual = 'X';
-        turnoTexto.textContent = 'X';
+        turnoTexto.textContent = `${nombreIconoCruz}`;
         reiniciarTemporizador();
         actualizarColores();
     }
