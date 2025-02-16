@@ -1,13 +1,13 @@
 html {
-    font-size: 55%; /* Incrementado de 50% a 55% */
+    font-size: 55%;
     box-sizing: border-box;
     /* 1rem = 8.8px */
 }
 
 body {
     font-family: "Roboto", sans-serif;
-    font-size: 1.4rem; /* Incrementado de 1.28rem a 1.4rem */
-    line-height: 1.4; /* Incrementado de 1.28 a 1.4 */
+    font-size: 1.4rem;
+    line-height: 1.4;
 }
 
 img {
@@ -25,25 +25,28 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 5rem;  
+    margin: 1.2rem 0;
 }
 
 @media (max-width: 1064px) {
     main {
         flex-direction: column-reverse;
-        row-gap: 4.5rem; /* Incrementado de 4rem a 4.5rem */
+        row-gap: 4.5rem;
+        margin: 2rem 0;
     }
 }
 
 /* ========= CLASES DE UTILIDAD =============*/
 .wrapper {
-    width: 44rem; /* Incrementado de 40rem a 44rem */
-    margin: 0 auto;
-    padding: 1.8rem; /* Incrementado de 1.6rem a 1.8rem */
+    width: 44rem;
+    padding: 1.8rem;
     border: 1px solid #d3d3d3;
 }
 
 .contenedor {
-    max-width: 44rem; /* Incrementado de 40rem a 44rem */
+    max-width: 44rem;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -55,24 +58,30 @@ main {
 }
 
 .descripcion-titulo {
-    font-size: 1.94rem; /* Incrementado de 1.76rem a 1.94rem */
+    font-size: 1.94rem;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 1.8rem; /* Incrementado de 1.6rem a 1.8rem */
+    margin-bottom: 1.8rem;
     background-color: #f5f5f5;
 }
 
 .descripcion-reglas, .descripcion-interfaz {
-    margin-bottom: 1.8rem; /* Incrementado de 1.6rem a 1.8rem */
+    margin-bottom: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .descripcion-interfaz {
     list-style-type: disc;
-    padding-left: 0.45rem; /* Incrementado de 0.4rem a 0.45rem */
+    padding-left: 0.45rem;
+}
+
+.descripcion-interfaz li {
+    margin-bottom: 0.6rem;
 }
 
 .descripcion-footer {
-    padding: 0.9rem; /* Incrementado de 0.8rem a 0.9rem */
+    padding: 0.9rem;
+    font-size: 1.6rem;
     text-align: center;
     background-color: #f5f5f5;
 }
@@ -82,7 +91,7 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0.9rem; /* Incrementado de 0.8rem a 0.9rem */
+    padding: 0.9rem;
     background-color: #f5f5f5;
 }
 
@@ -94,41 +103,41 @@ main {
 
 /* ================ ICONOS ================*/
 .icono {
-    width: 4.4rem; /* Incrementado de 4rem a 4.4rem */
-    height: 4.4rem; /* Incrementado de 4rem a 4.4rem */
-    margin-bottom: 0.9rem; /* Incrementado de 0.8rem a 0.9rem */
+    width: 4.4rem;
+    height: 4.4rem;
+    margin-bottom: 0.9rem;
 }
 
 /* ================ TABLERO ================*/
 .tablero {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin: 1.8rem 0; /* Incrementado de 1.6rem a 1.8rem */
+    margin: 1.8rem 0;
 }
 
 .casilla {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 13.2rem; /* Incrementado de 12rem a 13.2rem */
+    height: 13.2rem;
     cursor: pointer;
     position: relative;
 }
 
 .tablero .casilla:nth-child(1),
 .tablero .casilla:nth-child(2) {
-    border-bottom: 4.4px solid #d3d3d3; /* Incrementado de 4px a 4.4px */
+    border-bottom: 4.4px solid #d3d3d3;
 }
 
 .tablero .fila:nth-child(1) .casilla,
 .tablero .fila:nth-child(2) .casilla {
-    border-right: 4.4px solid #d3d3d3; /* Incrementado de 4px a 4.4px */
+    border-right: 4.4px solid #d3d3d3;
 }
 
 .linea-ganadora {
     position: absolute;
     background-color: red;
-    height: 0.44rem; /* Incrementado de 0.4rem a 0.44rem */
+    height: 0.44rem;
     width: 0;
     transition: width 0.5s;
 }
@@ -138,10 +147,10 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.9rem; /* Incrementado de 0.8rem a 0.9rem */
-    margin: 0.9rem 0; /* Incrementado de 0.8rem a 0.9rem */
+    padding: 0.9rem;
+    margin: 0.9rem 0;
     background-color: #f5f5f5;
-    font-size: 2.1rem; /* Incrementado de 1.92rem a 2.1rem */
+    font-size: 2.1rem;
     font-weight: bold;
 }
 
@@ -149,17 +158,17 @@ main {
 .contenedor-turno {
     display: flex;
     align-items: center;
-    padding: 0.45rem; /* Incrementado de 0.4rem a 0.45rem */
-    font-size: 1.8rem; /* Incrementado de 1.6rem a 1.8rem */
-    width: 13.2rem; /* Incrementado de 12rem a 13.2rem */
+    padding: 0.45rem;
+    font-size: 1.8rem;
+    width: 13.2rem;
     border: 1px solid #d3d3d3;
-    border-radius: 5.28rem; /* Incrementado de 4.8rem a 5.28rem */
+    border-radius: 5.28rem;
 }
 
 #turno-texto {
     flex: 1;
     text-align: center;
-    margin: 0.45rem 0.9rem; /* Incrementado de 0.4rem 0.8rem a 0.45rem 0.9rem */
+    margin: 0.45rem 0.9rem;
     text-transform: uppercase;
     color: #99a3a4;
 }
@@ -169,20 +178,20 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 0.9rem 0; /* Incrementado de 0.8rem a 0.9rem */
+    margin: 0.9rem 0;
 }
 
 .redondeado {
-    border-radius: 44%; /* Incrementado de 40% a 44% */
-    border: 8.8px solid #f5f5f5; /* Incrementado de 8px a 8.8px */
+    border-radius: 44%;
+    border: 8.8px solid #f5f5f5;
     background-color: #99a3a4;
 }
 
 .boton {
-    padding: 0.9rem; /* Incrementado de 0.8rem a 0.9rem */
-    width: 4.4rem; /* Incrementado de 4rem a 4.4rem */
-    height: 4.4rem; /* Incrementado de 4rem a 4.4rem */
-    border-radius: 44%; /* Incrementado de 40% a 44% */
+    padding: 0.9rem;
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 44%;
     transition: background-color 0.2s;
 }
 
@@ -192,16 +201,16 @@ main {
 
 /* ================ MODAL CONFIGURACIÓN ================*/
 #modal-configuracion {
-    display: none; /* Oculto por defecto */
+    display: none;
     flex-direction: column;
-    gap: 0.9rem; /* Incrementado de 0.8rem a 0.9rem */
+    gap: 0.9rem;
     margin: 0;
     border: none;
-    padding: 1.8rem; /* Incrementado de 1.6rem a 1.8rem */
-    border-radius: 0.9rem; /* Incrementado de 0.8rem a 0.9rem */
+    padding: 1.8rem;
+    border-radius: 0.9rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    max-width: 44rem; /* Incrementado de 40rem a 44rem */
+    max-width: 44rem;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -212,21 +221,17 @@ main {
     display: flex;
 }
 
-#modal-configuracion::backdrop {
-    background: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
-}
-
 #modal-configuracion h2 {
     margin: 0;
-    font-size: 2.1rem; /* Incrementado de 1.92rem a 2.1rem */
+    font-size: 2.1rem;
     align-self: flex-start;
 }
 
 #modal-configuracion button {
     align-self: flex-end;
-    padding: 0.45rem 0.9rem; /* Incrementado de 0.4rem 0.8rem a 0.45rem 0.9rem */
+    padding: 0.45rem 0.9rem;
     border: none;
-    border-radius: 0.45rem; /* Incrementado de 0.4rem a 0.45rem */
+    border-radius: 0.45rem;
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
@@ -234,5 +239,103 @@ main {
 }
 
 #modal-configuracion button:hover {
+    background-color: #0056b3;
+}
+
+/* ================ MODAL GANADOR ================*/
+#modal-ganador {
+    display: none;            
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    border: none;
+    padding: 1.6rem 2.8rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    max-width: 40rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#modal-ganador.mostrar {
+    display: flex;
+}
+
+#modal-ganador h2 {    
+    font-size: 2.4rem;
+    align-self: center;  
+}
+
+#modal-ganador p {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+#modal-ganador button {
+    align-self: flex-end;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#modal-ganador button:hover {
+    background-color: #0056b3;
+}
+
+/* ================ MODAL REINICIO ================*/
+#modal-confirmacion-reinicio {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    border: none;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    max-width: 40rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#modal-confirmacion-reinicio.mostrar {
+    display: flex;
+}
+
+#modal-confirmacion-reinicio h2 {    
+    font-size: 2.4rem;
+    align-self: center;
+    text-align: center;
+}
+
+#modal-confirmacion-reinicio p {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+#modal-confirmacion-reinicio button {
+    padding: 1rem 2rem;
+    border: none;    
+    border-radius: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0.5rem;
+    font-size: 1.6rem;    
+}
+
+#modal-confirmacion-reinicio button:hover {
     background-color: #0056b3;
 }

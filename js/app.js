@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (iconoCirculo.includes('estrella')) {
             nombreIconoCirculo = 'Estrella';
         } else {
-            nombreIconoCirculo = 'Cruz';
+            nombreIconoCirculo = 'Circulo';
         }
 
         if (iconoCruz.includes('perro')) {
@@ -115,8 +115,10 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (iconoCruz.includes('luna')) {
             nombreIconoCruz = 'Luna';
         } else {
-            nombreIconoCruz = 'Circulo';
+            nombreIconoCruz = 'Cruz';
         }
+        
+        turnoTexto.textContent = `${turnoActual === 'X' ? nombreIconoCruz : nombreIconoCirculo}`;
     }
 
     // MODIFICAR COLORES
@@ -141,16 +143,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const cerrarModalGanador = document.querySelector('#cerrar-modal-ganador');
 
     cerrarModalGanador.addEventListener('click', function() {
-        modalGanador.close();
+        modalGanador.classList.remove('mostrar');
     });
 
     function mostrarModalGanador(resultado) {
         if (resultado === 'Empate') {
             mensajeGanador.textContent = '¡Es un empate!';
         } else {
-            mensajeGanador.textContent = `¡${resultado} ha ganado!`;
+            const nombreGanador = resultado === 'X' ? nombreIconoCruz : nombreIconoCirculo;
+            mensajeGanador.textContent = `${nombreGanador} ha ganado`;
         }
-        modalGanador.showModal();
+        modalGanador.classList.add('mostrar');
     }
 
 
@@ -182,22 +185,22 @@ document.addEventListener('DOMContentLoaded', function() {
     confirmarReinicio.addEventListener('click', function() {
         reiniciarContadores();
         reiniciarIconosResumen();
-        modalConfirmacionReinicio.close();
+        modalConfirmacionReinicio.classList.remove('mostrar');
     });
 
     cancelarReinicio.addEventListener('click', function() {
-        modalConfirmacionReinicio.close();
+        modalConfirmacionReinicio.classList.remove('mostrar');
     });
 
     function mostrarModalConfirmacionReinicio() {
-        modalConfirmacionReinicio.showModal();
+        modalConfirmacionReinicio.classList.add('mostrar');
     }
 
     function reiniciarContadores() {
         jugador1Ganadas.textContent = '0';
         jugador2Ganadas.textContent = '0';
         empates.textContent = '0';
-        
+
         color1Input.value = '#ffffff';
         color2Input.value = '#ffffff';
         reiniciarJuego();

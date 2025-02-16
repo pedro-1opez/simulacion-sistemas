@@ -119,7 +119,6 @@
     <!-- ============== MODALES ============== -->
     <dialog id="modal-configuracion">                
         <h2>Configuración</h2>
-
         <fieldset>
             <legend>Temporizador</legend>
             <div class="form-group">
@@ -139,9 +138,9 @@
                 <div class="form-element">
                     <label for="icono-pares">Selecciona el par de iconos:</label>
                     <select id="icono-pares" name="icono-pares">
-                        <option value="img/circulo.png,img/cruz.png">Círculo y Cruz</option>
-                        <option value="img/gato.png,img/perro.png">Gato y Perro</option>
-                        <option value="img/estrella.png,img/luna.png">Estrella y Luna</option>
+                        <option value="img/circulo.png,img/cruz.png">Cruz y Circulo</option>
+                        <option value="img/gato.png,img/perro.png">Perro y Gato</option>
+                        <option value="img/estrella.png,img/luna.png">Luna y Estrella</option>
                     </select>
                 </div>
             </div>
@@ -162,17 +161,23 @@
         <button id="cerrar-modal">Cerrar</button>
     </dialog>
 
+
     <dialog id="modal-ganador">
         <h2>¡Felicidades!</h2>
         <p id="mensaje-ganador">El ganador es el jugador 1</p>
         <button id="cerrar-modal-ganador">Cerrar</button>
     </dialog>
 
+
     <dialog id="modal-confirmacion-reinicio">
-        <h2>Confirmación</h2>
-        <p>¿Desear reiniciar el contador?</p>
-        <button id="confirmar-reinicio">Sí</button>
-        <button id="cancelar-reinicio">No</button>
+        <div class="modal-contenido">
+            <h2>Confirmación</h2>
+            <p>¿Desea reiniciar el contador?</p>
+            <div class="contenedor-botones">
+                <button id="confirmar-reinicio">Sí</button>
+                <button id="cancelar-reinicio">No</button>
+            </div>
+        </div>
     </dialog>
 
 
