@@ -211,10 +211,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     //==================== TIC TAC TOE ====================//
-    const casillas = document.querySelectorAll('.casilla');
+    const casillas = document.querySelectorAll('.casilla');    
     const tablero = Array(9).fill(null);
     let turnoActual = 'X'; 
-    let temporizadorIniciado = false;   
+    let temporizadorIniciado = false;
+    const turnoTexto = document.querySelector('#turno-texto');
 
     const combinacionesGanadoras = [
         [0, 1, 2],
@@ -252,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         turnoActual = turnoActual === 'X' ? 'O' : 'X';
-        // turnoTexto.textContent = `${turnoActual}`;
+        turnoTexto.textContent = `${turnoActual === 'X' ? 'X' : 'O'}`;
     }
 
     function verificarEstadoJuego() {
@@ -276,6 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tablero.fill(null);
         casillas.forEach(casilla => casilla.textContent = '');
         turnoActual = 'X';
+        turnoTexto.textContent = 'X';
         reiniciarTemporizador();
         actualizarColores();
     }

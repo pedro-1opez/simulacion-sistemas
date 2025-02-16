@@ -10,134 +10,170 @@
 <body>
 
     <main>
-        <div class="contenedor">
-            
-            <div class="contenedor-resumen">
-                <div class="partida-resumen" id="linea-ganadora">
-                    <div class="icono">
-                        <img src="img/circulo.png" alt="" id="jugador1-icono">
-                    </div>                
-                    <p><span id="jugador1-ganadas">0</span> Wins</p>
-                </div>
-                <div class="partida-resumen">
-                    <div class="icono">
-                        <img src="img/cruz.png" alt="" id="jugador2-icono">
-                    </div>                
-                    <p><span id="jugador2-ganadas">0</span> Wins</p>
-                </div>
-                <div class="partida-resumen">
-                    <div class="icono">
-                        <img src="img/balanza.png" alt="" id="empate-icono">
+
+        <!-- TIC TAC TOE -->
+        <div class="wrapper">
+            <div class="contenedor">
+
+                <div class="contenedor-resumen">
+                    <div class="partida-resumen">
+                        <div class="icono">
+                            <img src="img/cruz.png" id="jugador2-icono">
+                        </div>                
+                        <p><span id="jugador2-ganadas">0</span> Wins</p>
                     </div>
-                    <p><span id="empates">0</span> Draws</p>
-                </div>
-            </div> 
-    
-    
-            <div class="tablero">
-                <div class="fila">
-                    <div class="casilla" data-index="0"></div>
-                    <div class="casilla" data-index="1"></div>
-                    <div class="casilla" data-index="2"></div>
-                </div>
-                <div class="fila">
-                    <div class="casilla" data-index="3"></div>
-                    <div class="casilla" data-index="4"></div>
-                    <div class="casilla" data-index="5"></div>
-                </div>
-                <div class="fila">
-                    <div class="casilla" data-index="6"></div>
-                    <div class="casilla" data-index="7"></div>
-                    <div class="casilla" data-index="8"></div>
-                </div>
-            </div>
-    
-            <div class="contenedor-temporizador">
-                <div id="temporizador">
-                    <p id="temporizador-texto">03:00</p>
-                </div>
-            </div>
-    
-            <div class="contenedor-botones">            
-                <div class="redondeado">                
-                    <div class="boton boton-reiniciar">
-                        <a href="#"><img src="img/resetear.png" alt=""></a>
-                    </div>                    
-                </div>            
-                
-                <div class="contenedor-turno">
-                    <p id="turno-texto">1 Player</p>
-                </div>            
-                            
-                <div class="redondeado">
-                    <div class="boton boton-configuracion">
-                        <a href="#"><img src="img/engrane.png" alt=""></a>
+                    <div class="partida-resumen">
+                        <div class="icono">
+                            <img src="img/circulo.png" id="jugador1-icono">
+                        </div>                
+                        <p><span id="jugador1-ganadas">0</span> Wins</p>
+                    </div>
+                    <div class="partida-resumen">
+                        <div class="icono">
+                            <img src="img/balanza.png" id="empate-icono">
+                        </div>
+                        <p><span id="empates">0</span> Draws</p>
+                    </div>
+                </div> 
+
+        
+                <div class="tablero">
+                    <div class="fila">
+                        <div class="casilla" data-index="0"></div>
+                        <div class="casilla" data-index="1"></div>
+                        <div class="casilla" data-index="2"></div>
+                    </div>
+                    <div class="fila">
+                        <div class="casilla" data-index="3"></div>
+                        <div class="casilla" data-index="4"></div>
+                        <div class="casilla" data-index="5"></div>
+                    </div>
+                    <div class="fila">
+                        <div class="casilla" data-index="6"></div>
+                        <div class="casilla" data-index="7"></div>
+                        <div class="casilla" data-index="8"></div>
                     </div>
                 </div>
-            </div>
+        
 
+                <div class="contenedor-temporizador">
+                    <div id="temporizador">
+                        <p id="temporizador-texto">03:00</p>
+                    </div>
+                </div>
+        
 
-            <!-- ============== MODALES ============== -->
-            <dialog id="modal-configuracion">                
-                <h2>Configuración</h2>
-
-                <fieldset>
-                    <legend>Temporizador</legend>
-                    <div class="form-group">
-                        <div class="form-element">
-                            <label for="minutos">Minutos:</label>
-                            <input type="number" id="minutos" name="minutos" min="0" max="60" value="3">
-                        </div>
-                        <div class="form-element">
-                            <label for="segundos">Segundos:</label>
-                            <input type="number" id="segundos" name="segundos" min="0" max="60" value="0">
+                <div class="contenedor-botones">            
+                    <div class="redondeado">                
+                        <div class="boton boton-reiniciar">
+                            <a href="#"><img src="img/resetear.png" alt=""></a>
+                        </div>                    
+                    </div>            
+                    
+                    <div class="contenedor-turno">
+                        <p id="turno-texto">X</p>
+                    </div>            
+                                
+                    <div class="redondeado">
+                        <div class="boton boton-configuracion">
+                            <a href="#"><img src="img/engrane.png" alt=""></a>
                         </div>
                     </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Imagenes</legend>
-                    <div class="form-group">
-                        <div class="form-element">
-                            <label for="icono-pares">Selecciona el par de iconos:</label>
-                            <select id="icono-pares" name="icono-pares">
-                                <option value="img/circulo.png,img/cruz.png">Círculo y Cruz</option>
-                                <option value="img/gato.png,img/perro.png">Gato y Perro</option>
-                                <option value="img/estrella.png,img/luna.png">Estrella y Luna</option>
-                            </select>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Seleccion de colores</legend>
-                    <div class="form-group">
-                        <div class="form-element">
-                            <label for="color1">Color de Fondo 1:</label>
-                            <input type="color" id="color1" name="color1" value="#ffffff">
-                        </div>
-                        <div class="form-element">
-                            <label for="color2">Color de Fondo 2:</label>
-                            <input type="color" id="color2" name="color2" value="#ffffff">
-                        </div>
-                    </div>
-                </fieldset>
-                <button id="cerrar-modal">Cerrar</button>
-            </dialog>
-
-            <dialog id="modal-ganador">
-                <h2>¡Felicidades!</h2>
-                <p id="mensaje-ganador">El ganador es el jugador 1</p>
-                <button id="cerrar-modal-ganador">Cerrar</button>
-            </dialog>
-
-            <dialog id="modal-confirmacion-reinicio">
-                <h2>Confirmación</h2>
-                <p>¿Desear reiniciar el contador?</p>
-                <button id="confirmar-reinicio">Sí</button>
-                <button id="cancelar-reinicio">No</button>
-            </dialog>
-
+                </div>
+                        
+            </div>    
         </div>
+        
+        <!-- DESCRIPCIÓN -->
+        <div class="wrapper descripcion">
+            <div class="contenedor">
+        
+                <div class="descripcion-titulo">
+                    <h2>Tic Tac Toe</h2>
+                </div>
+            
+                <div class="descripcion-reglas">
+                    <h3>Reglas</h3>
+                    <p>El juego consiste en colocar tres fichas en línea de forma horizontal, vertical o diagonal. El jugador que logre colocar tres fichas en línea gana la partida.</p>
+                </div>
+            
+                <div class="descripcion-interfaz">
+                    <h3>Interfaz</h3>
+                    <ul>
+                        <li>El juego cuenta con un tablero de 3x3 casillas, en donde los jugadores pueden colocar sus fichas.</li>
+                        <li>El juego cuenta con un temporizador que indica el tiempo restante de la partida.</li>
+                        <li>Pulsa en el engrane para cambiar la configuración del juego (temporizador, imágenes, colores de las casillas).</li>
+                        <li>Pulsa dos veces el botón de reiniciar para reiniciar el contador de victorias.</li>
+                    </ul>
+                </div>
+            
+                <footer class="descripcion-footer">
+                    <p>Desarrollado por Pedro Lopez</p>
+                </footer>
+            </div>
+        </div>
+        
     </main>
+
+
+    <!-- ============== MODALES ============== -->
+    <dialog id="modal-configuracion">                
+        <h2>Configuración</h2>
+
+        <fieldset>
+            <legend>Temporizador</legend>
+            <div class="form-group">
+                <div class="form-element">
+                    <label for="minutos">Minutos:</label>
+                    <input type="number" id="minutos" name="minutos" min="0" max="60" value="3">
+                </div>
+                <div class="form-element">
+                    <label for="segundos">Segundos:</label>
+                    <input type="number" id="segundos" name="segundos" min="0" max="60" value="0">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Imagenes</legend>
+            <div class="form-group">
+                <div class="form-element">
+                    <label for="icono-pares">Selecciona el par de iconos:</label>
+                    <select id="icono-pares" name="icono-pares">
+                        <option value="img/circulo.png,img/cruz.png">Círculo y Cruz</option>
+                        <option value="img/gato.png,img/perro.png">Gato y Perro</option>
+                        <option value="img/estrella.png,img/luna.png">Estrella y Luna</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Seleccion de colores</legend>
+            <div class="form-group">
+                <div class="form-element">
+                    <label for="color1">Color de Fondo 1:</label>
+                    <input type="color" id="color1" name="color1" value="#ffffff">
+                </div>
+                <div class="form-element">
+                    <label for="color2">Color de Fondo 2:</label>
+                    <input type="color" id="color2" name="color2" value="#ffffff">
+                </div>
+            </div>
+        </fieldset>
+        <button id="cerrar-modal">Cerrar</button>
+    </dialog>
+
+    <dialog id="modal-ganador">
+        <h2>¡Felicidades!</h2>
+        <p id="mensaje-ganador">El ganador es el jugador 1</p>
+        <button id="cerrar-modal-ganador">Cerrar</button>
+    </dialog>
+
+    <dialog id="modal-confirmacion-reinicio">
+        <h2>Confirmación</h2>
+        <p>¿Desear reiniciar el contador?</p>
+        <button id="confirmar-reinicio">Sí</button>
+        <button id="cancelar-reinicio">No</button>
+    </dialog>
 
 
     <script src="./js/app.js"></script>
